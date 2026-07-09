@@ -1,0 +1,24 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <!-- Windows 11 Settings Light Theme -->
+    <Color x:Key="WindowBgColor">#F3F3F3</Color>
+    <Color x:Key="SidebarBgColor">#EEEEEE</Color>
+    <Color x:Key="CardBgColor">#FFFFFF</Color>
+    <Color x:Key="BorderColor">#E5E5E5</Color>
+    <Color x:Key="AccentColor">#0078D4</Color>
+    <Color x:Key="SecondaryAccentColor">#005A9E</Color>
+    <Color x:Key="TextColor">#000000</Color>
+    <Color x:Key="TextMutedColor">#5F5F5F</Color>
+    
+    <!-- Brushes -->
+    <SolidColorBrush x:Key="WindowBg" Color="{StaticResource WindowBgColor}"/>
+    <SolidColorBrush x:Key="SidebarBg" Color="{StaticResource SidebarBgColor}"/>
+    <SolidColorBrush x:Key="CardBg" Color="{StaticResource CardBgColor}"/>
+    <SolidColorBrush x:Key="BorderBrush" Color="{StaticResource BorderColor}"/>
+    <SolidColorBrush x:Key="Accent" Color="{StaticResource AccentColor}"/>
+    <SolidColorBrush x:Key="SecondaryAccent" Color="{StaticResource SecondaryAccentColor}"/>
+    <SolidColorBrush x:Key="Text" Color="{StaticResource TextColor}"/>
+    <SolidColorBrush x:Key="TextMuted" Color="{StaticResource TextMutedColor}"/>
+    <SolidColorBrush x:Key="ControlHoverBg" Color="#E5E5E5"/>
+    <SolidColorBrush x:Key="GlassPanelBg" Color="#FFFFFF"/>
+</ResourceDictionary>
