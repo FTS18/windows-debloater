@@ -38,6 +38,126 @@ namespace ApexDebloater
             SourceInitialized += MainWindow_SourceInitialized;
         }
 
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (SearchPlaceholder != null)
+            {
+                SearchPlaceholder.Visibility = string.IsNullOrEmpty(SearchBox.Text) ? Visibility.Visible : Visibility.Collapsed;
+            }
+            ApplyGlobalSearchFilter(SearchBox.Text);
+        }
+
+        private void ApplyGlobalSearchFilter(string query)
+        {
+            query = query.Trim();
+
+            // Auto-switch to System Tweaks tab if searching from Home/Dashboard
+            if (!string.IsNullOrEmpty(query) && Sidebar != null && Sidebar.SelectedIndex == 0)
+            {
+                Sidebar.SelectedIndex = 1;
+            }
+
+            // 1. Filter System Tweaks
+            if (TweaksItemsControl != null && TweaksItemsControl.ItemsSource != null)
+            {
+                var view = System.Windows.Data.CollectionViewSource.GetDefaultView(TweaksItemsControl.ItemsSource);
+                if (string.IsNullOrEmpty(query))
+                {
+                    view.Filter = null;
+                }
+                else
+                {
+                    view.Filter = obj =>
+                    {
+                        if (obj is TweakItem tweak)
+                        {
+                            return (tweak.Name != null && tweak.Name.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                                   (tweak.Description != null && tweak.Description.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                                   (tweak.Category != null && tweak.Category.Contains(query, StringComparison.OrdinalIgnoreCase));
+                        }
+                        return true;
+                    };
+                }
+                view.Refresh();
+            }
+
+            // 2. Filter Startup Apps
+            if (StandaloneStartupListBox != null && StandaloneStartupListBox.ItemsSource != null)
+            {
+                var view = System.Windows.Data.CollectionViewSource.GetDefaultView(StandaloneStartupListBox.ItemsSource);
+                if (string.IsNullOrEmpty(query))
+                {
+                    view.Filter = null;
+                }
+                else
+                {
+                    view.Filter = obj =>
+                    {
+                        if (obj is StartupItem item)
+                        {
+                            return (item.Name != null && item.Name.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                                   (item.Command != null && item.Command.Contains(query, StringComparison.OrdinalIgnoreCase));
+                        }
+                        return true;
+                    };
+                }
+                view.Refresh();
+            }
+
+            // 3. Filter App Manager
+            if (AppxListBox != null && AppxListBox.ItemsSource != null)
+            {
+                var view = System.Windows.Data.CollectionViewSource.GetDefaultView(AppxListBox.ItemsSource);
+                if (string.IsNullOrEmpty(query))
+                {
+                    view.Filter = null;
+                }
+                else
+                {
+                    view.Filter = obj =>
+                    {
+                        if (obj is AppxPackageItem item)
+                        {
+                            return (item.DisplayName != null && item.DisplayName.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                                   (item.Name != null && item.Name.Contains(query, StringComparison.OrdinalIgnoreCase));
+                        }
+                        return true;
+                    };
+                }
+                view.Refresh();
+            }
+
+            // 4. Filter Context Menu Shell Extensions
+            if (ShellExtensionsListBox != null && ShellExtensionsListBox.ItemsSource != null)
+            {
+                var view = System.Windows.Data.CollectionViewSource.GetDefaultView(ShellExtensionsListBox.ItemsSource);
+                if (string.IsNullOrEmpty(query))
+                {
+                    view.Filter = null;
+                }
+                else
+                {
+                    view.Filter = obj =>
+                    {
+                        if (obj is ShellExtensionItem item)
+                        {
+                            return (item.Name != null && item.Name.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                                   (item.FriendlyDescription != null && item.FriendlyDescription.Contains(query, StringComparison.OrdinalIgnoreCase)) ||
+                                   (item.RegistryPath != null && item.RegistryPath.Contains(query, StringComparison.OrdinalIgnoreCase));
+                        }
+                        return true;
+                    };
+                }
+                view.Refresh();
+            }
+
+            // 5. Update Software SearchBox if we are on the Software Installer tab (or sync it)
+            if (SoftwareSearchBox != null && Sidebar != null && Sidebar.SelectedIndex == 5)
+            {
+                SoftwareSearchBox.Text = query;
+            }
+        }
+
         private void MainWindow_SourceInitialized(object? sender, EventArgs e)
         {
             UpdateTitleBarTheme(ThemeToggle.IsChecked ?? true);

@@ -68,8 +68,8 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <TextBlock Text="&#xE721;" FontFamily="Segoe MDL2 Assets" FontSize="12" Foreground="{DynamicResource TextMuted}" VerticalAlignment="Center" Margin="10,0,8,0"/>
-                        <TextBox Grid.Column="1" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Foreground="{DynamicResource Text}" FontSize="12" CaretBrush="{DynamicResource Text}" Width="190" HorizontalAlignment="Left" Padding="0"/>
-                        <TextBlock Grid.Column="1" IsHitTestVisible="False" Text="Find a setting" VerticalAlignment="Center" Foreground="{DynamicResource TextMuted}" FontSize="12" Visibility="Collapsed"/> <!-- simplified placeholder -->
+                        <TextBox x:Name="SearchBox" Grid.Column="1" Background="Transparent" BorderThickness="0" VerticalAlignment="Center" Foreground="{DynamicResource Text}" FontSize="12" CaretBrush="{DynamicResource Text}" Width="190" HorizontalAlignment="Left" Padding="0" TextChanged="SearchBox_TextChanged"/>
+                        <TextBlock x:Name="SearchPlaceholder" Grid.Column="1" IsHitTestVisible="False" Text="Find a setting" VerticalAlignment="Center" Foreground="{DynamicResource TextMuted}" FontSize="12" Visibility="Visible"/>
                     </Grid>
                 </Border>
 
