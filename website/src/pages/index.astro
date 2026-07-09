@@ -59,18 +59,37 @@
                     </div>
                     <div class="grain-overlay"></div>
                     <div class="hero-container">
-                        <span class="hero-badge">Release v1.0.0 Now Available</span>
-                        <h1 class="hero-title">Optimize Windows.<br />Reclaim Your PC.</h1>
-                        <p class="hero-subtitle">A modern, open-source utility designed to debloat, speed up, and secure Windows 10 and 11. Remove telemetry, uninstall pre-installed bloatware, and unlock peak hardware performance.</p>
-                        <div class="hero-ctas">
-                            <a href="#download" class="btn btn-white" data-tab-link="download">Get Started</a>
-                            <a href="https://github.com/FTS18/windows-debloater" target="_blank" class="btn btn-secondary">
-                                View on GitHub
-                                <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <line x1="7" y1="17" x2="17" y2="7"></line>
-                                    <polyline points="7 7 17 7 17 17"></polyline>
-                                </svg>
-                            </a>
+                        <div class="hero-grid">
+                            <div class="hero-text-side">
+                                <span class="hero-badge">Release v1.1.0 Now Available</span>
+                                <h1 class="hero-title">Optimize Windows.<br />Reclaim Your PC.</h1>
+                                <p class="hero-subtitle">A modern, open-source utility designed to debloat, speed up, and secure Windows 10 and 11. Remove telemetry, uninstall pre-installed bloatware, and unlock peak hardware performance.</p>
+                                <div class="hero-ctas">
+                                    <a href="#download" class="btn btn-white" data-tab-link="download">Get Started</a>
+                                    <a href="https://github.com/FTS18/windows-debloater" target="_blank" class="btn btn-secondary">
+                                        View on GitHub
+                                        <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <line x1="7" y1="17" x2="17" y2="7"></line>
+                                            <polyline points="7 7 17 7 17 17"></polyline>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="hero-console-side">
+                                <div class="console-window">
+                                    <div class="console-titlebar">
+                                        <div class="console-dots">
+                                            <span class="dot close"></span>
+                                            <span class="dot minimize"></span>
+                                            <span class="dot maximize"></span>
+                                        </div>
+                                        <span class="console-title">PowerShell</span>
+                                    </div>
+                                    <div class="console-body" id="console-body">
+                                        <div class="console-line prompt">PS C:\Users\dubey&gt; <span class="typed-command">./ApexDebloater.exe --debloat</span></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="mockup-wrapper">
@@ -643,6 +662,71 @@ dotnet build -c Release</code></pre>
                     });
                 }
             });
+
+            // Hero Mousemove Magnet Effect
+            const hero = document.querySelector('.hero');
+            const meshGradient = document.querySelector('.mesh-gradient');
+            if (hero && meshGradient) {
+                hero.addEventListener('mousemove', (e) => {
+                    const rect = hero.getBoundingClientRect();
+                    const x = e.clientX - rect.left - (rect.width / 2);
+                    const y = e.clientY - rect.top - (rect.height / 2);
+                    meshGradient.style.setProperty('--mouse-x', `${x}px`);
+                    meshGradient.style.setProperty('--mouse-y', `${y}px`);
+                });
+                
+                hero.addEventListener('mouseleave', () => {
+                    meshGradient.style.setProperty('--mouse-x', '0px');
+                    meshGradient.style.setProperty('--mouse-y', '0px');
+                });
+            }
+
+            // PowerShell Log Ticker
+            const consoleBody = document.getElementById('console-body');
+            if (consoleBody) {
+                const logs = [
+                    { text: "[INFO] Scanning system registries...", type: "info" },
+                    { text: "[INFO] Found 14 telemetry tasks.", type: "info" },
+                    { text: "[SUCCESS] Disabled: Customer Experience Program", type: "success" },
+                    { text: "[SUCCESS] Disabled: Compatibility Appraiser", type: "success" },
+                    { text: "[INFO] Scanning pre-installed packages...", type: "info" },
+                    { text: "[SUCCESS] Removed Package: Microsoft.BingNews", type: "success" },
+                    { text: "[SUCCESS] Removed Package: Microsoft.BingWeather", type: "success" },
+                    { text: "[SUCCESS] Disabled Windows Cortana background daemon.", type: "success" },
+                    { text: "[SUCCESS] Reclaimed 2.4 GB of system storage.", type: "success" },
+                    { text: "[SUCCESS] Reclaimed 1.1 GB of RAM.", type: "success" },
+                    { text: "[INFO] System optimization complete.", type: "info" },
+                    { text: "PS C:\\Users\\dubey> ", type: "prompt", isReset: true }
+                ];
+
+                let logIndex = 0;
+                const basePrompt = '<div class="console-line prompt">PS C:\\Users\\dubey&gt; <span class="typed-command">./ApexDebloater.exe --debloat</span></div>';
+
+                const runTicker = () => {
+                    if (logIndex < logs.length) {
+                        const log = logs[logIndex];
+                        const line = document.createElement('div');
+                        line.className = `console-line ${log.type}`;
+                        line.innerText = log.text;
+                        consoleBody.appendChild(line);
+                        
+                        consoleBody.scrollTop = consoleBody.scrollHeight;
+                        logIndex++;
+                        
+                        if (log.isReset) {
+                            setTimeout(() => {
+                                consoleBody.innerHTML = basePrompt;
+                                logIndex = 0;
+                                setTimeout(runTicker, 1500);
+                            }, 5000);
+                        } else {
+                            setTimeout(runTicker, 800 + Math.random() * 800);
+                        }
+                    }
+                };
+
+                setTimeout(runTicker, 2000);
+            }
         </script>
     </body>
 </html>
@@ -842,9 +926,137 @@ dotnet build -c Release</code></pre>
 
     .hero-container {
         position: relative;
-        max-width: 650px;
+        max-width: 1000px;
         margin: 0 auto;
         z-index: 2;
+    }
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 48px;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 48px;
+        text-align: left;
+    }
+
+    .hero-text-side {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-text-side .hero-title {
+        text-align: left;
+        margin-bottom: 16px;
+        font-size: 44px;
+    }
+
+    .hero-text-side .hero-subtitle {
+        text-align: left;
+        margin-bottom: 24px;
+    }
+
+    .hero-text-side .hero-ctas {
+        justify-content: flex-start;
+    }
+
+    .hero-console-side {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .console-window {
+        width: 100%;
+        max-width: 440px;
+        height: 250px;
+        background-color: #080808;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
+        display: flex;
+        flex-direction: column;
+    }
+
+    .console-titlebar {
+        height: 32px;
+        background-color: #121212;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        position: relative;
+    }
+
+    .console-dots {
+        display: flex;
+        gap: 6px;
+    }
+
+    .console-dots .dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #333333;
+    }
+
+    .console-dots .dot.close { background-color: #ff5f56; }
+    .console-dots .dot.minimize { background-color: #ffbd2e; }
+    .console-dots .dot.maximize { background-color: #27c93f; }
+
+    .console-title {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: monospace;
+        font-size: 11px;
+        color: var(--muted);
+    }
+
+    .console-body {
+        flex: 1;
+        padding: 16px;
+        font-family: monospace;
+        font-size: 11.5px;
+        color: #cccccc;
+        overflow-y: auto;
+        line-height: 1.5;
+        text-align: left;
+    }
+
+    .console-line {
+        margin-bottom: 6px;
+        white-space: pre-wrap;
+    }
+
+    .console-line.prompt {
+        color: #ffffff;
+    }
+
+    .console-line.info {
+        color: #569cd6;
+    }
+
+    .console-line.success {
+        color: #4ec9b0;
+    }
+
+    .console-line.warn {
+        color: #dcdcaa;
+    }
+
+    .console-body::after {
+        content: '_';
+        animation: blink 1s step-end infinite;
+        color: #ffffff;
+    }
+
+    @keyframes blink {
+        from, to { color: transparent }
+        50% { color: #ffffff }
     }
 
     .mesh-gradient {
@@ -857,6 +1069,8 @@ dotnet build -c Release</code></pre>
         z-index: 0;
         filter: blur(85px);
         opacity: 0.85;
+        transform: translate(calc(var(--mouse-x, 0px) * 0.08), calc(var(--mouse-y, 0px) * 0.08));
+        transition: transform 0.8s cubic-bezier(0.15, 0.85, 0.35, 1);
     }
 
     .blob {
@@ -1621,6 +1835,24 @@ dotnet build -c Release</code></pre>
 
     @media (max-width: 768px) {
         .nav-links {
+            display: none;
+        }
+        .hero-grid {
+            grid-template-columns: 1fr;
+            text-align: center;
+            gap: 32px;
+        }
+        .hero-text-side {
+            align-items: center;
+        }
+        .hero-text-side .hero-title,
+        .hero-text-side .hero-subtitle {
+            text-align: center;
+        }
+        .hero-text-side .hero-ctas {
+            justify-content: center;
+        }
+        .hero-console-side {
             display: none;
         }
         .hero-title {
