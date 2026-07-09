@@ -31,24 +31,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet" />
     </head>
     <body>
-        <header class="navbar">
-            <div class="nav-container">
-                <a href="#home" class="brand" data-tab-link="home">
-                    <img src="/logo.png" class="brand-logo" alt="Logo" />
-                    <span>Apex Windows 10/11 Debloater</span>
-                </a>
-                <nav class="nav-links">
-                    <a href="#home" class="nav-link active" data-tab-link="home">Features</a>
-                    <a href="#privacy" class="nav-link" data-tab-link="privacy">Privacy</a>
-                    <a href="#terms" class="nav-link" data-tab-link="terms">Terms</a>
-                    <a href="#support" class="nav-link" data-tab-link="support">Support</a>
-                </nav>
-                <div class="nav-cta">
-                    <a href="#download" class="btn btn-primary" data-tab-link="download">Download</a>
-                </div>
+        <!-- Windows Startup Intro Preloader -->
+        <div class="windows-preloader" id="preloader">
+            <div class="preloader-logo">
+                <svg viewBox="0 0 100 100" class="preloader-win-svg">
+                    <rect x="0" y="0" width="47" height="47" />
+                    <rect x="53" y="0" width="47" height="47" />
+                    <rect x="0" y="53" width="47" height="47" />
+                    <rect x="53" y="53" width="47" height="47" />
+                </svg>
+                <div class="preloader-spinner"></div>
             </div>
-        </header>
-
+        </div>
         <main class="content">
             <section id="tab-home" class="tab-content active">
                 <div class="hero">
@@ -58,38 +52,34 @@
                         <div class="blob blob-3"></div>
                     </div>
                     <div class="grain-overlay"></div>
+                    <div class="decor-windows left">
+                        <div class="decor-windows-inner">
+                            <svg viewBox="0 0 100 100" fill="currentColor">
+                                <rect x="0" y="0" width="47" height="47" />
+                                <rect x="53" y="0" width="47" height="47" />
+                                <rect x="0" y="53" width="47" height="47" />
+                                <rect x="53" y="53" width="47" height="47" />
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="decor-windows right">
+                        <div class="decor-windows-inner">
+                            <img src="https://raw.githubusercontent.com/microsoft/fluentui-emoji/main/assets/Rocket/3D/rocket_3d.png" class="decor-emoji-img" alt="Rocket" />
+                        </div>
+                    </div>
                     <div class="hero-container">
-                        <div class="hero-grid">
-                            <div class="hero-text-side">
-                                <span class="hero-badge">Release v1.1.0 Now Available</span>
-                                <h1 class="hero-title">Optimize Windows.<br />Reclaim Your PC.</h1>
-                                <p class="hero-subtitle">A modern, open-source utility designed to debloat, speed up, and secure Windows 10 and 11. Remove telemetry, uninstall pre-installed bloatware, and unlock peak hardware performance.</p>
-                                <div class="hero-ctas">
-                                    <a href="#download" class="btn btn-white" data-tab-link="download">Get Started</a>
-                                    <a href="https://github.com/FTS18/windows-debloater" target="_blank" class="btn btn-secondary">
-                                        View on GitHub
-                                        <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <line x1="7" y1="17" x2="17" y2="7"></line>
-                                            <polyline points="7 7 17 7 17 17"></polyline>
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="hero-console-side">
-                                <div class="console-window">
-                                    <div class="console-titlebar">
-                                        <div class="console-dots">
-                                            <span class="dot close"></span>
-                                            <span class="dot minimize"></span>
-                                            <span class="dot maximize"></span>
-                                        </div>
-                                        <span class="console-title">PowerShell</span>
-                                    </div>
-                                    <div class="console-body" id="console-body">
-                                        <div class="console-line prompt">PS C:\Users\dubey&gt; <span class="typed-command">./ApexDebloater.exe --debloat</span></div>
-                                    </div>
-                                </div>
-                            </div>
+                        <span class="hero-badge">Release v1.1.0 Now Available</span>
+                        <h1 class="hero-title">Optimize Windows.<br />Reclaim Your PC.</h1>
+                        <p class="hero-subtitle">A modern, open-source utility designed to debloat, speed up, and secure Windows 10 and 11. Remove telemetry, uninstall pre-installed bloatware, and unlock peak hardware performance.</p>
+                        <div class="hero-ctas">
+                            <a href="#download" class="btn btn-white" data-tab-link="download">Get Started</a>
+                            <a href="https://github.com/FTS18/windows-debloater" target="_blank" class="btn btn-secondary">
+                                View on GitHub
+                                <svg class="icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                                    <polyline points="7 7 17 7 17 17"></polyline>
+                                </svg>
+                            </a>
                         </div>
                         
                         <div class="mockup-wrapper">
@@ -142,6 +132,15 @@
                                                 </div>
                                                 <div class="health-progress">
                                                     <div class="progress-fill fill-tweaks" style="width: 65%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="mockup-console-box">
+                                                <div class="console-header">
+                                                    <span class="console-pulse"></span>
+                                                    <span>ACTIVE DIAGNOSTIC LOG</span>
+                                                </div>
+                                                <div class="console-body" id="console-body">
+                                                    <div class="console-line prompt">PS C:\Users\Admin&gt; <span class="typed-command">./ApexDebloater.exe --debloat</span></div>
                                                 </div>
                                             </div>
                                             <div class="mockup-toggles">
@@ -292,6 +291,7 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -306,26 +306,65 @@
                     
                     <div class="features-grid">
                         <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <line x1="12" y1="8" x2="12" y2="12"/>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                </svg>
+                            </div>
                             <h3>Telemetry Blocker</h3>
                             <p>Disable diagnostic tracking, background logging, lock screen ads, and Bing integration in the Start Menu.</p>
                         </div>
                         <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="21 8 21 21 3 21 3 8"/>
+                                    <rect x="1" y="3" width="22" height="5"/>
+                                    <line x1="10" y1="12" x2="14" y2="12"/>
+                                </svg>
+                            </div>
                             <h3>Bloatware Uninstaller</h3>
                             <p>Perform silent uninstalls of preloaded UWP Store apps and unwanted desktop software packages.</p>
                         </div>
                         <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 11l-8-8-8 8M19 11v8a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-8"/>
+                                    <line x1="12" y1="12" x2="12" y2="18"/>
+                                </svg>
+                            </div>
                             <h3>Disk Cleaner</h3>
                             <p>Purge temporary files, caches, and trigger Windows Component Store (WinSxS) compression to free gigabytes.</p>
                         </div>
                         <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                                </svg>
+                            </div>
                             <h3>Startup Manager</h3>
                             <p>Audit and disable background programs running at boot to decrease startup times.</p>
                         </div>
                         <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
                             <h3>DNS Switcher</h3>
                             <p>Change your DNS provider to Cloudflare, Google, or Quad9 instantly for enhanced privacy and speed.</p>
                         </div>
                         <div class="feature-card">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
                             <h3>Hardware Telemetry</h3>
                             <p>Monitor live CPU, RAM, and Disk storage health directly from the minimalist dashboard.</p>
                         </div>
@@ -493,14 +532,64 @@ dotnet build -c Release</code></pre>
 
         <footer class="footer">
             <div class="footer-container">
-                <span>Released under the MIT License. Copyright &copy; 2026 Dubey.</span>
+                <span>Released under the MIT License. Copyright &copy; 2026 ApexDebloater.</span>
                 <div class="footer-links">
                     <a href="https://github.com/FTS18/windows-debloater" target="_blank">GitHub</a>
                 </div>
             </div>
         </footer>
 
+        <!-- Windows 11 Taskbar Dock Navigation -->
+        <nav class="taskbar-dock">
+            <div class="dock-container">
+                <a href="#home" class="dock-item active" data-tab-link="home" aria-label="Home">
+                    <span class="dock-tooltip">Home</span>
+                    <svg viewBox="0 0 100 100" class="dock-icon">
+                        <rect x="0" y="0" width="47" height="47" />
+                        <rect x="53" y="0" width="47" height="47" />
+                        <rect x="0" y="53" width="47" height="47" />
+                        <rect x="53" y="53" width="47" height="47" />
+                    </svg>
+                    <span class="dock-indicator"></span>
+                </a>
+                <a href="#download" class="dock-item" data-tab-link="download" aria-label="Download App">
+                    <span class="dock-tooltip">Download App</span>
+                    <img src="/logo.png" class="dock-icon-img" alt="Download" />
+                    <span class="dock-indicator"></span>
+                </a>
+                <a href="#privacy" class="dock-item" data-tab-link="privacy" aria-label="Privacy Policy">
+                    <span class="dock-tooltip">Privacy Policy</span>
+                    <svg viewBox="0 0 24 24" class="dock-icon outline" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span class="dock-indicator"></span>
+                </a>
+                <a href="#terms" class="dock-item" data-tab-link="terms" aria-label="Terms of Service">
+                    <span class="dock-tooltip">Terms of Service</span>
+                    <svg viewBox="0 0 24 24" class="dock-icon outline" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <span class="dock-indicator"></span>
+                </a>
+                <a href="#support" class="dock-item" data-tab-link="support" aria-label="Customer Support">
+                    <span class="dock-tooltip">Customer Support</span>
+                    <svg viewBox="0 0 24 24" class="dock-icon outline" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span class="dock-indicator"></span>
+                </a>
+            </div>
+        </nav>
+
         <script>
+            const preloaderStartTime = Date.now();
+
             function switchTab(tabId) {
                 const tabs = document.querySelectorAll('.tab-content');
                 const navLinks = document.querySelectorAll('[data-tab-link]');
@@ -547,6 +636,32 @@ dotnet build -c Release</code></pre>
                 } else {
                     switchTab('home');
                 }
+                setTimeout(() => {
+                    if (typeof startConsoleTicker === 'function') startConsoleTicker();
+                }, 1000);
+            });
+
+            // preloader startup transition (minimum 2 seconds)
+            window.addEventListener('load', () => {
+                const elapsedTime = Date.now() - preloaderStartTime;
+                const remainingDelay = Math.max(0, 2000 - elapsedTime);
+                
+                setTimeout(() => {
+                    const preloader = document.getElementById('preloader');
+                    if (preloader) {
+                        preloader.classList.add('fade-out');
+                        setTimeout(() => {
+                            preloader.style.display = 'none';
+                        }, 800);
+                    }
+                }, remainingDelay);
+            });
+
+            // Watermarks scroll parallax exit effect
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const offset = scrollTop * 0.45;
+                document.documentElement.style.setProperty('--scroll-offset', `${offset}px`);
             });
 
             const mockupNavItems = document.querySelectorAll('.app-mockup .nav-item');
@@ -564,6 +679,12 @@ dotnet build -c Release</code></pre>
                     if (targetPanel) {
                         targetPanel.classList.remove('hidden');
                     }
+
+                    if (target === 'tweaks') {
+                        if (typeof startConsoleTicker === 'function') startConsoleTicker();
+                    } else {
+                        if (typeof stopConsoleTicker === 'function') stopConsoleTicker();
+                    }
                 });
             });
 
@@ -571,6 +692,7 @@ dotnet build -c Release</code></pre>
                 const switches = document.querySelectorAll(`.${switchClass}`);
                 const scoreValText = document.getElementById(scoreId);
                 const progressBarFill = document.querySelector(`.${fillClass}`);
+                const consoleBody = document.getElementById('console-body');
 
                 switches.forEach(sw => {
                     sw.addEventListener('click', () => {
@@ -585,6 +707,21 @@ dotnet build -c Release</code></pre>
                         
                         if (scoreValText) scoreValText.innerText = `${currentScore}%`;
                         if (progressBarFill) progressBarFill.style.width = `${currentScore}%`;
+
+                        // Append real-time logs when toggle status changes
+                        if (consoleBody) {
+                            const isActivated = sw.classList.contains('active');
+                            const toggleDetailsNode = sw.parentElement.querySelector('h4');
+                            if (toggleDetailsNode) {
+                                const toggleName = toggleDetailsNode.innerText;
+                                const timestamp = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false });
+                                const logLine = document.createElement('div');
+                                logLine.className = 'console-line ' + (isActivated ? 'success' : 'warn');
+                                logLine.innerText = `[${timestamp}] ${isActivated ? 'SUCCESS - Applied' : 'INFO - Reverted'}: ${toggleName}`;
+                                consoleBody.appendChild(logLine);
+                                consoleBody.scrollTop = consoleBody.scrollHeight;
+                            }
+                        }
                     });
                 });
             };
@@ -683,50 +820,67 @@ dotnet build -c Release</code></pre>
 
             // PowerShell Log Ticker
             const consoleBody = document.getElementById('console-body');
-            if (consoleBody) {
-                const logs = [
-                    { text: "[INFO] Scanning system registries...", type: "info" },
-                    { text: "[INFO] Found 14 telemetry tasks.", type: "info" },
-                    { text: "[SUCCESS] Disabled: Customer Experience Program", type: "success" },
-                    { text: "[SUCCESS] Disabled: Compatibility Appraiser", type: "success" },
-                    { text: "[INFO] Scanning pre-installed packages...", type: "info" },
-                    { text: "[SUCCESS] Removed Package: Microsoft.BingNews", type: "success" },
-                    { text: "[SUCCESS] Removed Package: Microsoft.BingWeather", type: "success" },
-                    { text: "[SUCCESS] Disabled Windows Cortana background daemon.", type: "success" },
-                    { text: "[SUCCESS] Reclaimed 2.4 GB of system storage.", type: "success" },
-                    { text: "[SUCCESS] Reclaimed 1.1 GB of RAM.", type: "success" },
-                    { text: "[INFO] System optimization complete.", type: "info" },
-                    { text: "PS C:\\Users\\dubey> ", type: "prompt", isReset: true }
-                ];
+            let consoleTimeoutId = null;
+            let logIndex = 0;
+            const basePrompt = '<div class="console-line prompt">PS C:\\Users\\Admin&gt; <span class="typed-command">./ApexDebloater.exe --debloat</span></div>';
+            
+            const logs = [
+                { text: "[INFO] Scanning system registries...", type: "info" },
+                { text: "[INFO] Found 14 telemetry tasks.", type: "info" },
+                { text: "[SUCCESS] Disabled: Customer Experience Program", type: "success" },
+                { text: "[SUCCESS] Disabled: Compatibility Appraiser", type: "success" },
+                { text: "[INFO] Scanning pre-installed packages...", type: "info" },
+                { text: "[SUCCESS] Removed Package: Microsoft.BingNews", type: "success" },
+                { text: "[SUCCESS] Removed Package: Microsoft.BingWeather", type: "success" },
+                { text: "[SUCCESS] Disabled Windows Cortana background daemon.", type: "success" },
+                { text: "[SUCCESS] Reclaimed 2.4 GB of system storage.", type: "success" },
+                { text: "[SUCCESS] Reclaimed 1.1 GB of RAM.", type: "success" },
+                { text: "[INFO] System optimization complete.", type: "info" },
+                { text: "PS C:\\Users\\Admin> ", type: "prompt", isReset: true }
+            ];
 
-                let logIndex = 0;
-                const basePrompt = '<div class="console-line prompt">PS C:\\Users\\dubey&gt; <span class="typed-command">./ApexDebloater.exe --debloat</span></div>';
-
-                const runTicker = () => {
-                    if (logIndex < logs.length) {
-                        const log = logs[logIndex];
-                        const line = document.createElement('div');
-                        line.className = `console-line ${log.type}`;
-                        line.innerText = log.text;
-                        consoleBody.appendChild(line);
-                        
-                        consoleBody.scrollTop = consoleBody.scrollHeight;
-                        logIndex++;
-                        
-                        if (log.isReset) {
-                            setTimeout(() => {
-                                consoleBody.innerHTML = basePrompt;
-                                logIndex = 0;
-                                setTimeout(runTicker, 1500);
-                            }, 5000);
-                        } else {
-                            setTimeout(runTicker, 800 + Math.random() * 800);
-                        }
+            function runTicker() {
+                if (!consoleBody) return;
+                
+                if (logIndex < logs.length) {
+                    const log = logs[logIndex];
+                    const line = document.createElement('div');
+                    line.className = `console-line ${log.type}`;
+                    line.innerText = log.text;
+                    consoleBody.appendChild(line);
+                    
+                    consoleBody.scrollTop = consoleBody.scrollHeight;
+                    logIndex++;
+                    
+                    if (log.isReset) {
+                        consoleTimeoutId = setTimeout(() => {
+                            consoleBody.innerHTML = basePrompt;
+                            logIndex = 0;
+                            consoleTimeoutId = setTimeout(runTicker, 1500);
+                        }, 5000);
+                    } else {
+                        consoleTimeoutId = setTimeout(runTicker, 800 + Math.random() * 800);
                     }
-                };
-
-                setTimeout(runTicker, 2000);
+                }
             }
+
+            window.startConsoleTicker = function() {
+                if (consoleTimeoutId) {
+                    clearTimeout(consoleTimeoutId);
+                }
+                if (consoleBody) {
+                    consoleBody.innerHTML = basePrompt;
+                }
+                logIndex = 0;
+                consoleTimeoutId = setTimeout(runTicker, 1000);
+            };
+
+            window.stopConsoleTicker = function() {
+                if (consoleTimeoutId) {
+                    clearTimeout(consoleTimeoutId);
+                    consoleTimeoutId = null;
+                }
+            };
         </script>
     </body>
 </html>
@@ -778,64 +932,150 @@ dotnet build -c Release</code></pre>
         background: #333333;
     }
 
-    .navbar {
+    .taskbar-dock {
         position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 64px;
-        border-bottom: 1px solid var(--border);
-        background-color: rgba(0, 0, 0, 0.7);
-        backdrop-filter: blur(12px);
-        z-index: 1000;
-    }
-
-    .nav-container {
-        max-width: 1000px;
-        height: 100%;
-        margin: 0 auto;
-        padding: 0 24px;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10000;
+        pointer-events: auto;
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
     }
 
-    .brand {
+    .dock-container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 7px 12px;
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(30px) saturate(140%);
+        -webkit-backdrop-filter: blur(30px) saturate(140%);
+        border: 1px solid rgba(255, 255, 255, 0.16);
+        border-radius: 18px;
+        box-shadow: 
+            inset 0 1.5px 0.5px rgba(255, 255, 255, 0.28),
+            inset 0 -1px 0px rgba(0, 0, 0, 0.2),
+            0 12px 30px -4px rgba(0, 0, 0, 0.6);
+    }
+
+    .dock-item {
+        width: 40px;
+        height: 40px;
+        border-radius: 11px;
         display: flex;
         align-items: center;
-        gap: 8px;
+        justify-content: center;
+        position: relative;
         text-decoration: none;
-        color: var(--fg);
-        font-weight: 600;
-        font-size: 15px;
-        letter-spacing: -0.2px;
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        border: 1px solid transparent;
     }
 
-    .brand-logo {
-        width: 32px;
-        height: 32px;
+    .dock-item:hover {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.18);
+        color: var(--fg);
+        transform: translateY(-2px);
+    }
+
+    .dock-item.active {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 100%);
+        border-color: rgba(255, 255, 255, 0.35);
+        box-shadow: 
+            inset 0 1px 1px rgba(255, 255, 255, 0.4),
+            0 4px 10px rgba(0, 0, 0, 0.15);
+        color: var(--fg);
+    }
+
+    .dock-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .dock-icon:not(.outline) {
+        fill: currentColor;
+    }
+
+    .dock-icon.outline {
+        width: 18px;
+        height: 18px;
+        fill: none !important;
+        stroke: currentColor;
+        stroke-width: 2.2px;
+    }
+
+    .dock-icon-img {
+        width: 20px;
+        height: 20px;
         object-fit: contain;
+        transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .nav-links {
-        display: flex;
-        gap: 24px;
+    .dock-item:hover .dock-icon,
+    .dock-item:hover .dock-icon-img {
+        transform: scale(1.05);
     }
 
-    .nav-link {
-        text-decoration: none;
-        color: var(--muted);
-        font-weight: 500;
-        transition: color 0.15s ease;
+    .dock-indicator {
+        position: absolute;
+        bottom: 3px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 3px;
+        background-color: var(--fg);
+        border-radius: 2px;
+        transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity: 0;
     }
 
-    .nav-link:hover, .nav-link.active {
+    .dock-item.active .dock-indicator {
+        width: 8px;
+        opacity: 1;
+    }
+
+    .dock-item:hover:not(.active) .dock-indicator {
+        width: 4px;
+        opacity: 0.5;
+    }
+
+    /* Taskbar Tooltips */
+    .dock-tooltip {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translate(-50%, 8px) scale(0.95);
+        opacity: 0;
+        pointer-events: none;
+        background: #111111;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 5px 10px;
+        font-size: 10px;
         color: var(--fg);
+        font-weight: 500;
+        font-family: var(--font);
+        white-space: nowrap;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        transition: opacity 0.15s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+        z-index: 10001;
+    }
+
+    .dock-item:hover .dock-tooltip {
+        opacity: 1;
+        transform: translate(-50%, 0) scale(1);
     }
 
     .content {
-        margin-top: 64px;
-        min-height: calc(100vh - 128px);
+        margin-top: 0;
+        padding-bottom: 96px;
+        min-height: 100vh;
     }
 
     .btn {
@@ -926,105 +1166,79 @@ dotnet build -c Release</code></pre>
 
     .hero-container {
         position: relative;
-        max-width: 1000px;
+        max-width: 650px;
         margin: 0 auto;
         z-index: 2;
     }
 
-    .hero-grid {
-        display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 48px;
-        align-items: center;
+    /* Embedded Console Styling */
+    .mockup-console-box {
+        margin-top: 14px;
         width: 100%;
-        margin-bottom: 48px;
-        text-align: left;
-    }
-
-    .hero-text-side {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .hero-text-side .hero-title {
-        text-align: left;
-        margin-bottom: 16px;
-        font-size: 44px;
-    }
-
-    .hero-text-side .hero-subtitle {
-        text-align: left;
-        margin-bottom: 24px;
-    }
-
-    .hero-text-side .hero-ctas {
-        justify-content: flex-start;
-    }
-
-    .hero-console-side {
-        width: 100%;
-        display: flex;
-        justify-content: center;
-    }
-
-    .console-window {
-        width: 100%;
-        max-width: 440px;
-        height: 250px;
-        background-color: #080808;
+        background-color: #0c0c0c;
         border: 1px solid var(--border);
-        border-radius: 8px;
+        border-radius: 6px;
         overflow: hidden;
-        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7);
         display: flex;
         flex-direction: column;
+        height: 116px;
+        flex-shrink: 0;
     }
 
-    .console-titlebar {
-        height: 32px;
+    .console-header {
+        height: 26px;
         background-color: #121212;
         border-bottom: 1px solid var(--border);
         display: flex;
         align-items: center;
-        padding: 0 12px;
-        position: relative;
-    }
-
-    .console-dots {
-        display: flex;
+        padding: 0 10px;
         gap: 6px;
-    }
-
-    .console-dots .dot {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background-color: #333333;
-    }
-
-    .console-dots .dot.close { background-color: #ff5f56; }
-    .console-dots .dot.minimize { background-color: #ffbd2e; }
-    .console-dots .dot.maximize { background-color: #27c93f; }
-
-    .console-title {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: monospace;
-        font-size: 11px;
+        font-family: var(--font);
+        font-size: 8.5px;
+        font-weight: 600;
         color: var(--muted);
+        letter-spacing: 0.5px;
+        user-select: none;
     }
 
-    .console-body {
-        flex: 1;
-        padding: 16px;
+    .console-pulse {
+        width: 6px;
+        height: 6px;
+        background-color: #10b981;
+        border-radius: 50%;
+        box-shadow: 0 0 8px #10b981;
+        animation: pulse 1.5s infinite alternate ease-in-out;
+    }
+
+    @keyframes pulse {
+        from { opacity: 0.4; }
+        to { opacity: 1; }
+    }
+
+    .mockup-console-box .console-body {
+        padding: 10px 12px;
         font-family: monospace;
-        font-size: 11.5px;
+        font-size: 9.5px;
         color: #cccccc;
         overflow-y: auto;
-        line-height: 1.5;
+        line-height: 1.4;
         text-align: left;
+        height: 90px;
+        background: rgba(12, 12, 12, 0.45);
+        backdrop-filter: blur(8px);
+    }
+
+    .mockup-console-box .console-body::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    .mockup-console-box .console-body::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .mockup-console-box .console-body::-webkit-scrollbar-thumb {
+        background: #2b2b2b;
+        border-radius: 2px;
     }
 
     .console-line {
@@ -1069,7 +1283,7 @@ dotnet build -c Release</code></pre>
         z-index: 0;
         filter: blur(85px);
         opacity: 0.85;
-        transform: translate(calc(var(--mouse-x, 0px) * 0.08), calc(var(--mouse-y, 0px) * 0.08));
+        transform: translate(calc(var(--mouse-x, 0px) * 0.2), calc(var(--mouse-y, 0px) * 0.2));
         transition: transform 0.8s cubic-bezier(0.15, 0.85, 0.35, 1);
     }
 
@@ -1082,18 +1296,18 @@ dotnet build -c Release</code></pre>
     .blob-1 {
         top: -10%;
         left: 10%;
-        width: 300px;
-        height: 300px;
-        background: radial-gradient(circle, rgba(255,255,255,0.22) 0%, rgba(0,0,0,0) 70%);
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, rgba(168, 85, 247, 0.3) 0%, rgba(0,0,0,0) 70%);
         animation-duration: 25s;
     }
 
     .blob-2 {
         bottom: -10%;
         right: 15%;
-        width: 400px;
-        height: 400px;
-        background: radial-gradient(circle, rgba(255,255,255,0.18) 0%, rgba(0,0,0,0) 70%);
+        width: 450px;
+        height: 450px;
+        background: radial-gradient(circle, rgba(59, 130, 246, 0.25) 0%, rgba(0,0,0,0) 70%);
         animation-duration: 30s;
         animation-delay: -5s;
     }
@@ -1101,9 +1315,9 @@ dotnet build -c Release</code></pre>
     .blob-3 {
         top: 20%;
         right: 30%;
-        width: 250px;
-        height: 250px;
-        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 70%);
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(236, 72, 153, 0.22) 0%, rgba(0,0,0,0) 70%);
         animation-duration: 22s;
         animation-delay: -10s;
     }
@@ -1119,6 +1333,84 @@ dotnet build -c Release</code></pre>
         background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         filter: invert(1);
         z-index: 1;
+    }
+
+    /* Decorative Windows Logos */
+    .decor-windows {
+        position: absolute;
+        pointer-events: none;
+        z-index: 1;
+        transition: transform 0.15s cubic-bezier(0.1, 0.9, 0.2, 1);
+        color: rgba(255, 255, 255, 0.15);
+    }
+
+    .decor-windows.left {
+        width: 320px;
+        height: 320px;
+        top: 18%;
+        left: -80px;
+        transform: translate(calc(var(--mouse-x, 0px) * -0.03 - var(--scroll-offset, 0px)), calc(var(--mouse-y, 0px) * -0.03));
+    }
+
+    .decor-windows.right {
+        width: 270px;
+        height: 270px;
+        top: 12%;
+        right: -60px;
+        transform: translate(calc(var(--mouse-x, 0px) * -0.03 + var(--scroll-offset, 0px)), calc(var(--mouse-y, 0px) * -0.03));
+        opacity: 0.28;
+    }
+
+    .decor-emoji-img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: saturate(0.85) drop-shadow(0 15px 30px rgba(0,0,0,0.4));
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .decor-windows-inner {
+        width: 100%;
+        height: 100%;
+        animation-duration: 20s;
+        animation-timing-function: ease-in-out;
+        animation-iteration-count: infinite;
+    }
+
+    .decor-windows.left .decor-windows-inner {
+        transform: perspective(1000px) rotateY(40deg) rotateX(15deg) rotateZ(-12deg);
+        animation-name: winZoomLeft;
+    }
+
+    .decor-windows.right .decor-windows-inner {
+        transform: perspective(1000px) rotateY(-40deg) rotateX(15deg) rotateZ(12deg);
+        animation-name: winZoomRight;
+        animation-delay: -4s;
+    }
+
+    @keyframes winZoomLeft {
+        0% {
+            transform: perspective(1000px) rotateY(40deg) rotateX(15deg) rotateZ(-12deg) scale(0.96);
+        }
+        50% {
+            transform: perspective(1000px) rotateY(36deg) rotateX(12deg) rotateZ(-10deg) scale(1.05);
+        }
+        100% {
+            transform: perspective(1000px) rotateY(40deg) rotateX(15deg) rotateZ(-12deg) scale(0.96);
+        }
+    }
+
+    @keyframes winZoomRight {
+        0% {
+            transform: perspective(1000px) rotateY(-40deg) rotateX(15deg) rotateZ(12deg) scale(0.96);
+        }
+        50% {
+            transform: perspective(1000px) rotateY(-36deg) rotateX(12deg) rotateZ(10deg) scale(1.05);
+        }
+        100% {
+            transform: perspective(1000px) rotateY(-40deg) rotateX(15deg) rotateZ(12deg) scale(0.96);
+        }
     }
 
     @keyframes float {
@@ -1206,12 +1498,14 @@ dotnet build -c Release</code></pre>
 
     .feature-card {
         position: relative;
-        background-color: var(--card-bg);
-        border: 1px solid var(--border);
-        border-radius: 6px;
+        background: linear-gradient(135deg, rgba(20, 20, 20, 0.45) 0%, rgba(10, 10, 10, 0.65) 100%);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
         padding: 24px;
         overflow: hidden;
-        transition: border-color 0.15s ease;
+        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .feature-card::before {
@@ -1223,7 +1517,7 @@ dotnet build -c Release</code></pre>
         height: 100%;
         background: radial-gradient(
             300px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-            rgba(255, 255, 255, 0.05),
+            rgba(255, 255, 255, 0.04),
             transparent 80%
         );
         z-index: 1;
@@ -1237,7 +1531,37 @@ dotnet build -c Release</code></pre>
     }
 
     .feature-card:hover {
-        border-color: var(--border-hover);
+        border-color: rgba(255, 255, 255, 0.12);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 32px -10px rgba(0, 0, 0, 0.75), 0 0 15px -3px rgba(255, 255, 255, 0.03);
+    }
+
+    .feature-icon {
+        width: 32px;
+        height: 32px;
+        color: #9e9e9e;
+        margin-bottom: 14px;
+        position: relative;
+        z-index: 2;
+        transition: color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 8px;
+    }
+
+    .feature-card:hover .feature-icon {
+        color: var(--fg);
+        transform: scale(1.08);
+        background: rgba(255, 255, 255, 0.07);
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .feature-icon svg {
+        width: 16px;
+        height: 16px;
     }
 
     .feature-card h3 {
@@ -1833,26 +2157,14 @@ dotnet build -c Release</code></pre>
         display: none !important;
     }
 
+    @media (max-width: 1024px) {
+        .decor-windows {
+            display: none !important;
+        }
+    }
+
     @media (max-width: 768px) {
         .nav-links {
-            display: none;
-        }
-        .hero-grid {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 32px;
-        }
-        .hero-text-side {
-            align-items: center;
-        }
-        .hero-text-side .hero-title,
-        .hero-text-side .hero-subtitle {
-            text-align: center;
-        }
-        .hero-text-side .hero-ctas {
-            justify-content: center;
-        }
-        .hero-console-side {
             display: none;
         }
         .hero-title {
@@ -1864,5 +2176,70 @@ dotnet build -c Release</code></pre>
         .mockup-wrapper {
             display: none !important;
         }
+    }
+
+    /* Windows Startup Intro Preloader */
+    .windows-preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 999999;
+        transition: opacity 0.6s cubic-bezier(0.85, 0, 0.15, 1), visibility 0.6s;
+    }
+
+    .preloader-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transform: scale(0.85);
+        opacity: 0;
+        animation: logoIntro 1.2s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+    }
+
+    .preloader-win-svg {
+        width: 64px;
+        height: 64px;
+        color: #ffffff;
+        fill: currentColor;
+    }
+
+    .preloader-spinner {
+        margin-top: 48px;
+        width: 24px;
+        height: 24px;
+        border: 2px solid rgba(255, 255, 255, 0.08);
+        border-top-color: #ffffff;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes logoIntro {
+        to {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Zoom/Fade Out on Exit */
+    .windows-preloader.fade-out {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .windows-preloader.fade-out .preloader-logo {
+        transform: scale(4.5);
+        opacity: 0;
+        transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1), opacity 0.5s ease-out;
     }
 </style>
