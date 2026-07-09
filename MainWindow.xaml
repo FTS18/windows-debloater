@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ApexDebloater"
         mc:Ignorable="d"
-        Title="Settings" Height="650" Width="1000"
+        Title="Apex Windows 10/11 Debloater | Settings" Height="650" Width="1000" Icon="app.png"
         WindowStartupLocation="CenterScreen" Background="{DynamicResource WindowBg}">
 
     <Window.Resources>
@@ -48,10 +48,8 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
                     
-                    <!-- Circular User Avatar -->
-                    <Border Width="48" Height="48" CornerRadius="24" Background="{DynamicResource BorderBrush}" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <!-- Standard User Icon representation -->
-                        <TextBlock Text="&#xE77B;" FontFamily="Segoe MDL2 Assets" FontSize="20" Foreground="{DynamicResource Text}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Border Width="56" Height="56" CornerRadius="6" Background="Transparent" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Image Source="app.png" RenderOptions.BitmapScalingMode="HighQuality"/>
                     </Border>
                     
                     <!-- Name -->
